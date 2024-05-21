@@ -1,0 +1,50 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using DZ150524.Models;
+@model IndexViewModel
+
+
+<style>
+    td, th {
+        padding: 0 13px 0 0;
+    }
+
+</style>
+
+<p><a asp-action="Create">Добавить машину</a></p>
+
+<h1>Список машин</h1>
+<table class="table">
+    <tr>
+        <th><p>Марка</p> </th>
+        <th><p>Модель</p>  </th>
+        <th><p>Тип кузов</p>  </th>
+        <th><p>Тип двигателя</p> </th>
+        <th><p>Обьем двигателя</p></th>
+        <th><p>Тип трансмисси</p></th>
+        <th><p>Средний расход</p>  </th>
+    </tr>
+    @foreach (var u in Model.Cars)
+    {
+        <tr>
+            <td>@u.marka</td>
+            <td>@u.model</td>
+            <td>@u.bodytype</td>
+            <td>@u.enginetype</td>
+            <td>@u.engineDisplacement</td>
+            <td>@u.transmissionType</td>
+            <td>@u.averageConsumption</td>
+            <td>               
+                <a asp-action="Edit" asp-controller="Home" asp-route-id="@u.Id">Изменить</a>
+                @* <form asp-controller="Home" asp-action="Edit" method="post" asp-route-id="@u.Id">
+                    <input type="submit" value="Изменить" />
+                </form> *@
+
+            </td>
+            <td>
+                <form asp-controller="Home" asp-action="Delete" method="post" asp-route-id="@u.Id">
+                    <input type="submit" value="Удалить" />
+                </form>
+            </td>
+        </tr>
+    }
+</table>

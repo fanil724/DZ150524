@@ -1,0 +1,37 @@
+﻿@model DZ150524.Models.Car;
+
+<h2>Добавление машину</h2>
+<form asp-action="create" asp-controller="home">
+    <p>
+        <label asp-for="marka">Марка</label><br />
+        <input type="text" asp-for="marka" />
+    </p>
+    <p>
+        <label asp-for="model">Модель</label><br />
+        <input type="text" asp-for="model" />
+    </p>
+    
+    <p>
+        <label asp-for="bodytype">Тип кузова</label><br />
+        <input type="text" asp-for="bodytype" />
+    </p>
+    <p>
+        <label asp-for="enginetype">Тип двигателя</label><br />
+        <input type="text" asp-for="enginetype" />
+    </p>
+    <p>
+        <label asp-for="engineDisplacement">Обьем двигателя</label><br />
+        <input type="number" asp-for="engineDisplacement" />
+    </p>
+    <p>
+        <label asp-for="transmissionType">Тип трансмисси</label><br />
+        <input type="text" asp-for="transmissionType" />
+    </p>
+    <p>
+        <label asp-for="averageConsumption">Средний расход</label><br />
+        <input type="number" asp-for="averageConsumption" />
+    </p>   
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+</form>
